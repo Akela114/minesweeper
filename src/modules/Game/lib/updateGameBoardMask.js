@@ -16,6 +16,7 @@ const updateGameBoardMask = (prevMask, board, ceils) => {
   for (let i = 0; i < ceils.length; i++) {
     const [y, x] = ceils[i]
     newMask[y][x].isVisible = true
+    newMask[y][x].status = 'none'
     if (board[y][x] === 0) {
       for (let yAdj = -1; yAdj < 2; yAdj++) {
         if (y + yAdj < 0 || y + yAdj >= height) {

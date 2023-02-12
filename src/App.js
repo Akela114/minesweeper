@@ -1,12 +1,18 @@
-import GameBoard from './components/GameBoard'
+import { AppWrapper } from './App.styled'
+import Game from './modules/Game/Game'
 
 const App = () => {
   const boardOptions = {
-    width: 8,
-    height: 8,
-    numOfMines: 10,
+    width: 16,
+    height: 16,
+    numOfMines: 40,
   }
-  return <GameBoard options={boardOptions} />
+
+  return (
+    <AppWrapper>
+      <Game options={boardOptions} />
+    </AppWrapper>
+  )
 }
 
 export default App
