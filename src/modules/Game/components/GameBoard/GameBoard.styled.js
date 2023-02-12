@@ -151,49 +151,49 @@ Board.Ceil = styled.div`
   }
 
   @media (orientation: portrait) {
-    @media (max-height: 1665px) or (max-width: 760px) {
+    @media (max-height: 1550px) or (max-width: 760px) {
       width: ${(props) => Math.trunc(props.fontSizeMultiplier * 40)}px;
       height: ${(props) => Math.trunc(props.fontSizeMultiplier * 40)}px;
       font-size: ${(props) => Math.trunc(props.fontSizeMultiplier * 19)}px;
     }
 
-    @media (max-height: 1500px) or (max-width: 675px) {
+    @media (max-height: 1380px) or (max-width: 675px) {
       width: ${(props) => Math.trunc(props.fontSizeMultiplier * 35)}px;
       height: ${(props) => Math.trunc(props.fontSizeMultiplier * 35)}px;
       font-size: ${(props) => Math.trunc(props.fontSizeMultiplier * 18)}px;
     }
 
-    @media (max-height: 1340px) or (max-width: 585px) {
+    @media (max-height: 1230px) or (max-width: 585px) {
       width: ${(props) => Math.trunc(props.fontSizeMultiplier * 30)}px;
       height: ${(props) => Math.trunc(props.fontSizeMultiplier * 30)}px;
       font-size: ${(props) => Math.trunc(props.fontSizeMultiplier * 17)}px;
     }
 
-    @media (max-height: 1175px) or (max-width: 515px) {
+    @media (max-height: 1050px) or (max-width: 515px) {
       width: ${(props) => Math.trunc(props.fontSizeMultiplier * 25)}px;
       height: ${(props) => Math.trunc(props.fontSizeMultiplier * 25)}px;
       font-size: ${(props) => Math.trunc(props.fontSizeMultiplier * 16)}px;
     }
 
-    @media (max-height: 1040px) or (max-width: 420px) {
+    @media (max-height: 890px) or (max-width: 420px) {
       width: ${(props) => Math.trunc(props.fontSizeMultiplier * 20)}px;
       height: ${(props) => Math.trunc(props.fontSizeMultiplier * 20)}px;
       font-size: ${(props) => Math.trunc(props.fontSizeMultiplier * 15)}px;
     }
 
-    @media (max-height: 880px) or (max-width: 345px) {
+    @media (max-height: 720px) or (max-width: 345px) {
       width: ${(props) => Math.trunc(props.fontSizeMultiplier * 18)}px;
       height: ${(props) => Math.trunc(props.fontSizeMultiplier * 18)}px;
       font-size: ${(props) => Math.trunc(props.fontSizeMultiplier * 14)}px;
     }
 
-    @media (max-height: 795px) or (max-width: 310px) {
+    @media (max-height: 655px) or (max-width: 310px) {
       width: ${(props) => Math.trunc(props.fontSizeMultiplier * 16)}px;
       height: ${(props) => Math.trunc(props.fontSizeMultiplier * 16)}px;
       font-size: ${(props) => Math.trunc(props.fontSizeMultiplier * 13)}px;
     }
 
-    @media (max-height: 730px) or (max-width: 280px) {
+    @media (max-height: 595px) or (max-width: 280px) {
       width: ${(props) => Math.trunc(props.fontSizeMultiplier * 14)}px;
       height: ${(props) => Math.trunc(props.fontSizeMultiplier * 14)}px;
       font-size: ${(props) => Math.trunc(props.fontSizeMultiplier * 12)}px;

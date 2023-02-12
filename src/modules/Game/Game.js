@@ -10,6 +10,7 @@ import {
   GameInfo,
   GameActions,
   GameBody,
+  GameNotification,
 } from './Game.styled'
 import GameBoard from './components/GameBoard'
 import GameCounter from './components/GameCounter/GameCounter'
@@ -64,6 +65,12 @@ const Game = ({ options: { width, height, numOfMines } }) => {
     })
   }
 
+  const handleGameRestart = () => {
+    setGameInfo({ status: 'none', time: 0 })
+    setBoard(generateGameBoard(width, height, 0))
+    setBoardMask(createGameBoardMask(width, height))
+  }
+
   const counterValue =
     numOfMines -
     boardMask.reduce(
@@ -80,13 +87,19 @@ const Game = ({ options: { width, height, numOfMines } }) => {
           <GameCounter value={counterValue} />
           <GameTimer status={gameInfo.status} onGameWin={handleGameWin} />
         </GameInfo>
-        <GameActions>
-          <GameActions.Button>рестарт</GameActions.Button>
+        {gameInfo.status === 'defeat' && (
+          <GameNotification color='red'>ПОРАЖЕНИЕ</GameNotification>
+        )}
+        {gameInfo.status === 'win' && (
+          <GameNotification color='green'>ПOБЕДА</GameNotification>
+        )}
+        <GameActions status={gameInfo.status}>
+          <GameActions.Button onClick={handleGameRestart}>
+            рестарт
+          </GameActions.Button>
           <GameActions.Button>настройки</GameActions.Button>
         </GameActions>
       </GameHeader>
-      {gameInfo.status === 'win' && <div>Победа! {gameInfo.time}</div>}
-      {gameInfo.status === 'defeat' && <div>Поражение!</div>}
       <GameBody>
         <GameBoard
           board={board}
