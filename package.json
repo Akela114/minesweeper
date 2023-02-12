@@ -16,7 +16,7 @@
   "bugs": {
     "url": "https://github.com/Akela114/minesweeper/issues"
   },
-  "homepage": "https://github.com/Akela114/minesweeper#readme",
+  "homepage": "https://akela114.github.io/minesweeper/",
   "dependencies": {
     "prop-types": "^15.8.1",
     "react": "^18.2.0",

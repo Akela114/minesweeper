@@ -5,7 +5,7 @@ const App = () => {
   return (
     <Routes>
       <Route path='game/*' element={<GamePage />} />
-      <Route path='*' element={<Navigate to='/game' replace />} />
+      <Route path='*' element={<Navigate to='game' replace />} />
     </Routes>
   )
 }
