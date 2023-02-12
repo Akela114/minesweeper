@@ -6,7 +6,11 @@ export const Board = styled.div`
   align-items: center;
   flex-direction: ${(props) => (props.width > props.height ? 'row' : 'column')};
 
-  border: 4px solid #666;
+  border: 4px solid #64eb;
+  border-radius: 8px;
+  overflow: hidden;
+
+  background-color: #fff;
 
   @media (orientation: portrait) {
     flex-direction: ${(props) =>
@@ -22,24 +26,24 @@ Board.Row = styled.div`
     return props.width <= props.height
       ? `
         &:not(:last-of-type) {
-          border-bottom: 2px solid #999;
+          border-bottom: 2px solid #64e9;
         }
 
         @media (orientation: portrait) {
           &:not(:last-of-type) {
             border-bottom: 0;
-            border-right: 2px solid #999;
+            border-right: 2px solid #64e9;
           }
         }`
       : `
         &:not(:last-of-type) {
-          border-right: 2px solid #999;
+          border-right: 2px solid #64e9;
         }
 
         @media (orientation: portrait) {
           &:not(:last-of-type) {
             border-right: 0;
-            border-bottom: 2px solid #999;
+            border-bottom: 2px solid #64e9;
           }
         }`
   }}
@@ -53,7 +57,7 @@ Board.Row = styled.div`
 Board.Ceil = styled.div`
   font-size: ${(props) => Math.trunc(props.fontSizeMultiplier * 20)}px;
   font-weight: 500;
-  color: #333;
+  color: #64ed;
 
   cursor: pointer;
 
@@ -65,37 +69,37 @@ Board.Ceil = styled.div`
   align-items: center;
   background-color: ${(props) => {
     if (props.isVisible) {
-      return props.isBomb ? '#ecc' : '#fff'
+      return props.isBomb ? '#FD6D7266' : '#64e1'
     }
     return props.status === 'flag'
-      ? '#ff8'
+      ? '#FDDA0D'
       : props.status === 'question'
-      ? '#66e'
-      : '#ddd'
+      ? '#93DFB877'
+      : '#64e4'
   }};
 
   ${(props) => {
     return props.width <= props.height
       ? `
         &:not(:last-of-type) {
-          border-right: 2px solid #999;
+          border-right: 2px solid #64e9;
         }
 
         @media (orientation: portrait) {
           &:not(:last-of-type) {
             border-right: 0;
-            border-bottom: 2px solid #999;
+            border-bottom: 2px solid #64e9;
           }
         }`
       : `
         &:not(:last-of-type) {
-          border-bottom: 2px solid #999;
+          border-bottom: 2px solid #64e9;
         }
 
         @media (orientation: portrait) {
           &:not(:last-of-type) {
             border-bottom: 0;
-            border-right: 2px solid #999;
+            border-right: 2px solid #64e9;
           }
         }`
   }}
@@ -197,6 +201,85 @@ Board.Ceil = styled.div`
       width: ${(props) => Math.trunc(props.fontSizeMultiplier * 14)}px;
       height: ${(props) => Math.trunc(props.fontSizeMultiplier * 14)}px;
       font-size: ${(props) => Math.trunc(props.fontSizeMultiplier * 12)}px;
+    }
+  }
+`
+
+Board.CeilImage = styled.img`
+  width: ${(props) => Math.trunc(props.fontSizeMultiplier * 30)}px;
+  height: ${(props) => Math.trunc(props.fontSizeMultiplier * 30)}px;
+
+  @media (orientation: landscape) {
+    @media (max-height: 750px) or (max-width: 1355px) {
+      width: ${(props) => Math.trunc(props.fontSizeMultiplier * 25)}px;
+      height: ${(props) => Math.trunc(props.fontSizeMultiplier * 25)}px;
+    }
+
+    @media (max-height: 670px) or (max-width: 1195px) {
+      width: ${(props) => Math.trunc(props.fontSizeMultiplier * 20)}px;
+      height: ${(props) => Math.trunc(props.fontSizeMultiplier * 20)}px;
+    }
+
+    @media (max-height: 560px) or (max-width: 1035px) {
+      width: ${(props) => Math.trunc(props.fontSizeMultiplier * 15)}px;
+      height: ${(props) => Math.trunc(props.fontSizeMultiplier * 15)}px;
+    }
+
+    @media (max-height: 485px) or (max-width: 875px) {
+      width: ${(props) => Math.trunc(props.fontSizeMultiplier * 10)}px;
+      height: ${(props) => Math.trunc(props.fontSizeMultiplier * 10)}px;
+    }
+
+    @media (max-height: 395px) or (max-width: 715px) {
+      width: ${(props) => Math.trunc(props.fontSizeMultiplier * 8)}px;
+      height: ${(props) => Math.trunc(props.fontSizeMultiplier * 8)}px;
+    }
+
+    @media (max-height: 365px) or (max-width: 665px) {
+      width: ${(props) => Math.trunc(props.fontSizeMultiplier * 6)}px;
+      height: ${(props) => Math.trunc(props.fontSizeMultiplier * 6)}px;
+    }
+
+    @media (max-height: 339px) or (max-width: 600px) {
+      width: ${(props) => Math.trunc(props.fontSizeMultiplier * 4)}px;
+      height: ${(props) => Math.trunc(props.fontSizeMultiplier * 4)}px;
+    }
+  }
+
+  @media (orientation: portrait) {
+    @media (max-height: 1380px) or (max-width: 675px) {
+      width: ${(props) => Math.trunc(props.fontSizeMultiplier * 25)}px;
+      height: ${(props) => Math.trunc(props.fontSizeMultiplier * 25)}px;
+    }
+
+    @media (max-height: 1230px) or (max-width: 585px) {
+      width: ${(props) => Math.trunc(props.fontSizeMultiplier * 20)}px;
+      height: ${(props) => Math.trunc(props.fontSizeMultiplier * 20)}px;
+    }
+
+    @media (max-height: 1050px) or (max-width: 515px) {
+      width: ${(props) => Math.trunc(props.fontSizeMultiplier * 15)}px;
+      height: ${(props) => Math.trunc(props.fontSizeMultiplier * 15)}px;
+    }
+
+    @media (max-height: 890px) or (max-width: 420px) {
+      width: ${(props) => Math.trunc(props.fontSizeMultiplier * 10)}px;
+      height: ${(props) => Math.trunc(props.fontSizeMultiplier * 10)}px;
+    }
+
+    @media (max-height: 720px) or (max-width: 345px) {
+      width: ${(props) => Math.trunc(props.fontSizeMultiplier * 8)}px;
+      height: ${(props) => Math.trunc(props.fontSizeMultiplier * 8)}px;
+    }
+
+    @media (max-height: 655px) or (max-width: 310px) {
+      width: ${(props) => Math.trunc(props.fontSizeMultiplier * 6)}px;
+      height: ${(props) => Math.trunc(props.fontSizeMultiplier * 6)}px;
+    }
+
+    @media (max-height: 595px) or (max-width: 280px) {
+      width: ${(props) => Math.trunc(props.fontSizeMultiplier * 4)}px;
+      height: ${(props) => Math.trunc(props.fontSizeMultiplier * 4)}px;
     }
   }
 `

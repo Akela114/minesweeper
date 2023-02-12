@@ -13,6 +13,10 @@ export const GameWrapper = styled.div`
     align-self: stretch;
     flex: 1;
   }
+
+  @media (orientation: portrait) {
+    padding: 8px 0;
+  }
 `
 
 export const GameHeader = styled.div`
@@ -21,17 +25,18 @@ export const GameHeader = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: stretch;
-  gap: 6px;
+  gap: 24px;
 
-  padding: 8px 12px;
+  padding: 10px 12px;
 
   @media (orientation: portrait) {
-    flex-direction: column-reverse;
+    flex-direction: column;
     padding: 0;
+    gap: 6px;
   }
 
   @media (orientation: landscape) {
-    background-color: #eee;
+    background-color: #64e3;
 
     @media (max-height: 750px) or (max-width: 1355px) {
       font-size: 21px;
@@ -47,6 +52,10 @@ export const GameInfo = styled.div`
   justify-content: flex-start;
   align-items: stretch;
   gap: 6px;
+
+  @media (orientation: portrait) {
+    order: 2;
+  }
 `
 
 export const GameActions = styled.div`
@@ -58,6 +67,10 @@ export const GameActions = styled.div`
   justify-content: flex-end;
   align-items: stretch;
   gap: 6px;
+
+  @media (orientation: portrait) {
+    order: 3;
+  }
 `
 
 GameActions.Button = styled(Button)`

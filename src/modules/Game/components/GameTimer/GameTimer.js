@@ -1,6 +1,7 @@
 import { PropTypes } from 'prop-types'
 import { useState, useEffect } from 'react'
-import { TimerWrapper } from './GameTimer.style'
+import { icons } from '../../../../assets'
+import { TimerWrapper, TimerImage } from './GameTimer.style'
 
 const GameTimer = ({ status, onGameWin }) => {
   const [currentTime, setCurrentTime] = useState(0)
@@ -38,7 +39,10 @@ const GameTimer = ({ status, onGameWin }) => {
   }, [status])
 
   return (
-    <TimerWrapper>🕑️ {currentTime.toString().padStart(3, '0')}</TimerWrapper>
+    <TimerWrapper>
+      <TimerImage src={icons.clock} alt='Flag Icon' />{' '}
+      {currentTime.toString().padStart(3, '0')}
+    </TimerWrapper>
   )
 }
 

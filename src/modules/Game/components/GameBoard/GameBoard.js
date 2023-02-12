@@ -1,4 +1,5 @@
 import { PropTypes } from 'prop-types'
+import { icons } from '../../../../assets'
 import { Board } from './GameBoard.styled'
 
 const GameBoard = ({ board, boardMask, onCeilRightClick, onCeilLeftClick }) => {
@@ -26,13 +27,31 @@ const GameBoard = ({ board, boardMask, onCeilRightClick, onCeilLeftClick }) => {
                 fontSizeMultiplier={fontSizeMultiplier}
               >
                 {boardMask[y][x].isVisible &&
-                  (ceilVal === 'M' ? '💣️' : ceilVal || '')}
+                  (ceilVal === 'M' ? (
+                    <Board.CeilImage
+                      src={icons.bomb}
+                      alt='Bomb Icon'
+                      fontSizeMultiplier={fontSizeMultiplier}
+                    />
+                  ) : (
+                    ceilVal || ''
+                  ))}
                 {!boardMask[y][x].isVisible &&
-                  (boardMask[y][x].status === 'flag'
-                    ? '🚩'
-                    : boardMask[y][x].status === 'question'
-                    ? '❔'
-                    : '')}
+                  (boardMask[y][x].status === 'flag' ? (
+                    <Board.CeilImage
+                      src={icons.flag.black}
+                      alt='Flag Icon'
+                      fontSizeMultiplier={fontSizeMultiplier}
+                    />
+                  ) : boardMask[y][x].status === 'question' ? (
+                    <Board.CeilImage
+                      src={icons.question}
+                      alt='Question Icon'
+                      fontSizeMultiplier={fontSizeMultiplier}
+                    />
+                  ) : (
+                    ''
+                  ))}
               </Board.Ceil>
             ))}
           </Board.Row>

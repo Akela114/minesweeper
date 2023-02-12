@@ -6,10 +6,12 @@ const Button = styled.button`
 
   cursor: pointer;
 
+  background-color: #64e;
+
   &:active {
-    color: #444;
+    color: #64e;
     background-color: #fff;
-    outline: 2px solid #444;
+    outline: 2px solid #64e;
   }
 `
 
