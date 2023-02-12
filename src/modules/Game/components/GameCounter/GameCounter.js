@@ -1,5 +1,5 @@
 import { PropTypes } from 'prop-types'
-import { icons } from '../../../../assets'
+import icons from '../../../../assets/icons'
 import { CounterWrapper, CounterImage } from './GameCounter.style'
 
 const GameCounter = ({ value }) => {

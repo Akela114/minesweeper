@@ -1,6 +1,7 @@
 import React, { Fragment } from 'react'
 import ReactDOM from 'react-dom/client'
 import { Helmet } from 'react-helmet'
+import { BrowserRouter } from 'react-router-dom'
 import GlobalStyle from './GlobalStyle'
 import App from './App'
 
@@ -14,6 +15,8 @@ root.render(
       />
     </Helmet>
     <GlobalStyle />
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </Fragment>,
 )

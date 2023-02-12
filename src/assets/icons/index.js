@@ -3,8 +3,9 @@ import flagWhite from './flag-white.svg'
 import flagBlack from './flag-black.svg'
 import question from './question.svg'
 import clock from './clock.svg'
+import board from './board.svg'
 
-export const icons = {
+const icons = {
   bomb,
   flag: {
     black: flagBlack,
@@ -12,4 +13,7 @@ export const icons = {
   },
   question,
   clock,
+  board,
 }
+
+export default icons

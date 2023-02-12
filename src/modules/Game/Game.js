@@ -1,5 +1,6 @@
 import { PropTypes } from 'prop-types'
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import generateGameBoard from './lib/generateGameBoard'
 import createGameBoardMask from './lib/createGameBoardMask'
 import updateGameBoardMask from './lib/updateGameBoardMask'
@@ -17,6 +18,8 @@ import GameCounter from './components/GameCounter/GameCounter'
 import GameTimer from './components/GameTimer/GameTimer'
 
 const Game = ({ options: { width, height, numOfMines } }) => {
+  const navigate = useNavigate()
+
   const [gameInfo, setGameInfo] = useState({ status: 'none', time: 0 })
   const [board, setBoard] = useState(generateGameBoard(width, height, 0))
   const [boardMask, setBoardMask] = useState(createGameBoardMask(width, height))
@@ -91,13 +94,15 @@ const Game = ({ options: { width, height, numOfMines } }) => {
           <GameNotification color='red'>ПОРАЖЕНИЕ</GameNotification>
         )}
         {gameInfo.status === 'win' && (
-          <GameNotification color='green'>ПOБЕДА</GameNotification>
+          <GameNotification color='green'>ПОБЕДА</GameNotification>
         )}
         <GameActions status={gameInfo.status}>
           <GameActions.Button onClick={handleGameRestart}>
-            рестарт
+            Рестарт
           </GameActions.Button>
-          <GameActions.Button>настройки</GameActions.Button>
+          <GameActions.Button onClick={() => navigate('../')}>
+            Меню
+          </GameActions.Button>
         </GameActions>
       </GameHeader>
       <GameBody>

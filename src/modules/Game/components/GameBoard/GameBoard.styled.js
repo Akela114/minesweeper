@@ -203,6 +203,8 @@ Board.Ceil = styled.div`
       font-size: ${(props) => Math.trunc(props.fontSizeMultiplier * 12)}px;
     }
   }
+
+  transition: background-color 0.1s ease-out;
 `
 
 Board.CeilImage = styled.img`

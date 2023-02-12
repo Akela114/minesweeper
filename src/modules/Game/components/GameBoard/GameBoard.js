@@ -1,5 +1,5 @@
 import { PropTypes } from 'prop-types'
-import { icons } from '../../../../assets'
+import icons from '../../../../assets/icons'
 import { Board } from './GameBoard.styled'
 
 const GameBoard = ({ board, boardMask, onCeilRightClick, onCeilLeftClick }) => {

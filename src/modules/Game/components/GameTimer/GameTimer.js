@@ -1,6 +1,6 @@
 import { PropTypes } from 'prop-types'
 import { useState, useEffect } from 'react'
-import { icons } from '../../../../assets'
+import icons from '../../../../assets/icons'
 import { TimerWrapper, TimerImage } from './GameTimer.style'
 
 const GameTimer = ({ status, onGameWin }) => {

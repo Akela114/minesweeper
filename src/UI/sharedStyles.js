@@ -10,21 +10,16 @@ export const wrapperStyle = css`
   align-items: center;
   justify-content: center;
 
-  padding: 10px 24px;
+  padding: 8px 24px;
 
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 500;
   color: #fff;
 
   background-color: #444;
 
   @media (orientation: landscape) {
-    @media (max-height: 830px) or (max-width: 1520px) {
-      font-size: 23px;
-    }
-
     @media (max-height: 750px) or (max-width: 1355px) {
-      font-size: 21px;
       padding: 6px 12px;
     }
 
@@ -54,15 +49,6 @@ export const wrapperStyle = css`
   }
 
   @media (orientation: portrait) {
-    padding: 6px 12px;
-    @media (max-height: 1665px) or (max-width: 760px) {
-      font-size: 23px;
-    }
-
-    @media (max-height: 1500px) or (max-width: 675px) {
-      font-size: 21px;
-    }
-
     @media (max-height: 1340px) or (max-width: 585px) {
       font-size: 19px;
     }
