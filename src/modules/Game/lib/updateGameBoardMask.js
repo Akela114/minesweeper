@@ -6,7 +6,11 @@ const updateGameBoardMask = (prevMask, board, ceils) => {
     return new Array(board.length)
       .fill(null)
       .map(() =>
-        new Array(board[0].length).fill({ isVisible: true, status: 'none' }),
+        new Array(board[0].length).fill({
+          isVisible: true,
+          status: 'none',
+          isHighlighted: false,
+        }),
       )
   }
 

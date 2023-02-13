@@ -1,7 +1,16 @@
 import { configureStore } from '@reduxjs/toolkit'
 import { leaderboardReducer } from './slices/leaderboard'
 import storage from 'redux-persist/lib/storage'
-import { persistReducer, persistStore } from 'redux-persist'
+import {
+  persistReducer,
+  persistStore,
+  FLUSH,
+  REHYDRATE,
+  PAUSE,
+  PERSIST,
+  PURGE,
+  REGISTER,
+} from 'redux-persist'
 
 const persistLeaderboardConfig = {
   key: 'leaderBoard',
@@ -15,6 +24,12 @@ const persistedLeaderBoardReducer = persistReducer(
 
 const store = configureStore({
   reducer: persistedLeaderBoardReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: {
+        ignoredActions: [FLUSH, REHYDRATE, PAUSE, PERSIST, PURGE, REGISTER],
+      },
+    }),
 })
 
 export const persistor = persistStore(store)

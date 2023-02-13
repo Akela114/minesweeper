@@ -3,7 +3,13 @@ import updateGameBoardMask from './updateGameBoardMask'
 describe('updateGameBoardMask Function', () => {
   const exampleMask = new Array(4)
     .fill(null)
-    .map(() => new Array(4).fill({ isVisible: false, status: 'none' }))
+    .map(() =>
+      new Array(4).fill({
+        isVisible: false,
+        status: 'none',
+        isHighlighted: false,
+      }),
+    )
 
   const exampleBoard = [
     [1, 1, 2, 'M'],
@@ -19,7 +25,13 @@ describe('updateGameBoardMask Function', () => {
       ])
       const expectedMask = new Array(4)
         .fill(null)
-        .map(() => new Array(4).fill({ isVisible: true, status: 'none' }))
+        .map(() =>
+          new Array(4).fill({
+            isVisible: true,
+            status: 'none',
+            isHighlighted: false,
+          }),
+        )
       expect(updatedMask).toStrictEqual(expectedMask)
     })
 

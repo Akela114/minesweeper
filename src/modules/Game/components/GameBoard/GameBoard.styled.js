@@ -26,24 +26,24 @@ Board.Row = styled.div`
     return props.width <= props.height
       ? `
         &:not(:last-of-type) {
-          border-bottom: 2px solid #64e9;
+          border-bottom: 2px solid #A38FF5;
         }
 
         @media (orientation: portrait) {
           &:not(:last-of-type) {
             border-bottom: 0;
-            border-right: 2px solid #64e9;
+            border-right: 2px solid #A38FF5;
           }
         }`
       : `
         &:not(:last-of-type) {
-          border-right: 2px solid #64e9;
+          border-right: 2px solid #A38FF5;
         }
 
         @media (orientation: portrait) {
           &:not(:last-of-type) {
             border-right: 0;
-            border-bottom: 2px solid #64e9;
+            border-bottom: 2px solid #A38FF5;
           }
         }`
   }}
@@ -71,10 +71,12 @@ Board.Ceil = styled.div`
     if (props.isVisible) {
       return props.isBomb ? '#FD6D7266' : '#64e1'
     }
-    return props.status === 'flag'
-      ? '#FDDA0D'
+    return props.isHighlighted
+      ? '#64e7'
+      : props.status === 'flag'
+      ? '#FFE417'
       : props.status === 'question'
-      ? '#93DFB877'
+      ? '#A7F3CC'
       : '#64e4'
   }};
 
@@ -82,24 +84,24 @@ Board.Ceil = styled.div`
     return props.width <= props.height
       ? `
         &:not(:last-of-type) {
-          border-right: 2px solid #64e9;
+          border-right: 2px solid #A38FF5;
         }
 
         @media (orientation: portrait) {
           &:not(:last-of-type) {
             border-right: 0;
-            border-bottom: 2px solid #64e9;
+            border-bottom: 2px solid #A38FF5;
           }
         }`
       : `
         &:not(:last-of-type) {
-          border-bottom: 2px solid #64e9;
+          border-bottom: 2px solid #A38FF5;
         }
 
         @media (orientation: portrait) {
           &:not(:last-of-type) {
             border-bottom: 0;
-            border-right: 2px solid #64e9;
+            border-right: 2px solid #A38FF5;
           }
         }`
   }}

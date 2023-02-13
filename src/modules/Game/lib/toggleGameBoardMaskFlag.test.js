@@ -3,7 +3,13 @@ import toggleGameBoardMaskFlag from './toggleGameBoardMaskFlag'
 describe('toggleGameBoardMaskFlag Function', () => {
   const exampleMask = new Array(4)
     .fill(null)
-    .map(() => new Array(4).fill({ isVisible: false, status: 'none' }))
+    .map(() =>
+      new Array(4).fill({
+        isVisible: false,
+        status: 'none',
+        isHighlighted: false,
+      }),
+    )
 
   test('Correctly toggles status if parameters are correct', () => {
     const updatedMask1 = toggleGameBoardMaskFlag(exampleMask, [0, 0])

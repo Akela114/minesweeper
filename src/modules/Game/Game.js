@@ -5,6 +5,8 @@ import generateGameBoard from './lib/generateGameBoard'
 import createGameBoardMask from './lib/createGameBoardMask'
 import updateGameBoardMask from './lib/updateGameBoardMask'
 import toggleGameBoardMaskFlag from './lib/toggleGameBoardMaskFlag'
+import toggleGameBoardMaskHighlight from './lib/toggleGameBoardMaskHighlight'
+import updateGameBoardMaskAdjacent from './lib/updateGameBoardMaskAdjacent'
 import {
   GameWrapper,
   GameHeader,
@@ -68,6 +70,16 @@ const Game = ({ options: { difficulty, width, height, numOfMines } }) => {
     setBoardMask((prev) => toggleGameBoardMaskFlag(prev, [y, x]))
   }
 
+  const handleCeilWheelToggle = (y, x) => {
+    if (gameInfo.status !== 'active') return
+    setBoardMask((prev) => toggleGameBoardMaskHighlight(prev, [y, x]))
+  }
+
+  const handleCeilWheelUpdate = (y, x) => {
+    if (gameInfo.status !== 'active') return
+    setBoardMask((prev) => updateGameBoardMaskAdjacent(prev, board, [y, x]))
+  }
+
   const handleGameWin = (time) => {
     const leaderboardIndex = leaderboardResults.findIndex(
       (val) => val.time > time,
@@ -103,7 +115,7 @@ const Game = ({ options: { difficulty, width, height, numOfMines } }) => {
           time,
           message:
             leaderboardPosition !== -1
-              ? `${leaderboardPosition + 1}-е место в таблице лидеров!`
+              ? `${leaderboardPosition + 1}-е место в таблице!`
               : '',
         }
       return prev
@@ -153,6 +165,8 @@ const Game = ({ options: { difficulty, width, height, numOfMines } }) => {
           boardMask={boardMask}
           onCeilRightClick={handleCeilRightClick}
           onCeilLeftClick={handleCeilLeftClick}
+          onCeilWheelToggle={handleCeilWheelToggle}
+          onCeilWheelUpdate={handleCeilWheelUpdate}
         />
       </GameBody>
     </GameWrapper>

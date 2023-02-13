@@ -5,7 +5,13 @@ describe('createGameBoardMask Function', () => {
     const generatedBoard = createGameBoardMask(4, 4)
     const expectedBoard = new Array(4)
       .fill(null)
-      .map(() => new Array(4).fill({ isVisible: false, status: 'none' }))
+      .map(() =>
+        new Array(4).fill({
+          isVisible: false,
+          status: 'none',
+          isHighlighted: false,
+        }),
+      )
     expect(generatedBoard).toStrictEqual(expectedBoard)
   })
 })
