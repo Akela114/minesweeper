@@ -61,6 +61,7 @@ const GameBoard = ({
                 height={height}
                 width={width}
                 fontSizeMultiplier={fontSizeMultiplier}
+                value={board[y][x]}
               >
                 {boardMask[y][x].isVisible &&
                   (ceilVal === 'M' ? (

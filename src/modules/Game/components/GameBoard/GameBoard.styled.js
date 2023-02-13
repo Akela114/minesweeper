@@ -57,7 +57,24 @@ Board.Row = styled.div`
 Board.Ceil = styled.div`
   font-size: ${(props) => Math.trunc(props.fontSizeMultiplier * 20)}px;
   font-weight: 500;
-  color: #64ed;
+  color: ${(props) =>
+    props.value === 1
+      ? '#4361ee'
+      : props.value === 2
+      ? '#40916c'
+      : props.value === 3
+      ? '#d00000'
+      : props.value === 4
+      ? '#3a0ca3'
+      : props.value === 5
+      ? '#7f5539'
+      : props.value === 6
+      ? '#4cc9f0'
+      : props.value === 7
+      ? '#000000'
+      : props.value === 8
+      ? '#fca311'
+      : '#000'};
 
   cursor: pointer;
 
