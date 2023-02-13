@@ -1,5 +1,4 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
-import Menu from '../../modules/Menu'
 import Game from '../../modules/Game'
 import Layout from '../../UI/Layout'
 
@@ -11,7 +10,6 @@ const GamePage = () => {
   return (
     <Layout>
       <Routes>
-        <Route path='' element={<Menu />} />
         <Route path='simple' element={<Game options={simpleOptions} />} />
         <Route path='medium' element={<Game options={mediumOptions} />} />
         <Route path='hard' element={<Game options={hardOptions} />} />

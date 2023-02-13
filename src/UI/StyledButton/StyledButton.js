@@ -1,8 +1,10 @@
 import styled from 'styled-components'
 import { wrapperStyle } from '../sharedStyles'
 
-const Button = styled.button`
+const StyledButton = styled.button`
   ${wrapperStyle}
+
+  text-decoration: none;
 
   cursor: pointer;
 
@@ -15,4 +17,4 @@ const Button = styled.button`
   }
 `
 
-export default Button
+export default StyledButton

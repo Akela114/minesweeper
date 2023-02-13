@@ -12,7 +12,7 @@ export const wrapperStyle = css`
 
   padding: 8px 24px;
 
-  font-size: 22px;
+  font-size: 20px;
   font-weight: 500;
   color: #fff;
 

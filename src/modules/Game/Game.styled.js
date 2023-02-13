@@ -1,5 +1,6 @@
 import styled from 'styled-components'
-import Button from '../../UI/Button'
+import StyledButton from '../../UI/StyledButton'
+import StyledLink from '../../UI/StyledLink'
 import { wrapperStyle } from '../../UI/sharedStyles'
 
 export const GameWrapper = styled.div`
@@ -73,7 +74,13 @@ export const GameActions = styled.div`
   }
 `
 
-GameActions.Button = styled(Button)`
+GameActions.Button = styled(StyledButton)`
+  @media (orientation: portrait) {
+    flex: 1;
+  }
+`
+
+GameActions.Link = styled(StyledLink)`
   @media (orientation: portrait) {
     flex: 1;
   }

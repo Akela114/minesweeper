@@ -1,7 +1,7 @@
 import { PropTypes } from 'prop-types'
 import { useState, useEffect } from 'react'
 import icons from '../../../../assets/icons'
-import { TimerWrapper, TimerImage } from './GameTimer.style'
+import { TimerWrapper, TimerImage, TimerValue } from './GameTimer.style'
 
 const GameTimer = ({ status, onGameWin }) => {
   const [currentTime, setCurrentTime] = useState(0)
@@ -10,10 +10,10 @@ const GameTimer = ({ status, onGameWin }) => {
     let timerId
 
     const tickTimer = (startTime, currentInterval) => {
-      setCurrentTime((prev) => prev + 1)
+      setCurrentTime((prev) => prev + 0.1)
 
       const currentTime = new Date().getTime()
-      const diff = currentTime - startTime - 1000
+      const diff = currentTime - startTime - 100
       const newInterval = currentInterval - diff
 
       timerId = setTimeout(() => {
@@ -28,8 +28,8 @@ const GameTimer = ({ status, onGameWin }) => {
     if (status === 'active') {
       const startTime = new Date().getTime()
       timerId = setTimeout(() => {
-        tickTimer(startTime, 1000)
-      }, 1000)
+        tickTimer(startTime, 100)
+      }, 100)
       return () => clearTimeout(timerId)
     }
 
@@ -38,10 +38,19 @@ const GameTimer = ({ status, onGameWin }) => {
     }
   }, [status])
 
+  const currentTimeAsString = currentTime.toString().split('.')
+  currentTimeAsString[1] = currentTimeAsString[1]?.[0] || '0'
+
   return (
     <TimerWrapper>
       <TimerImage src={icons.clock} alt='Flag Icon' />{' '}
-      {currentTime.toString().padStart(3, '0')}
+      <TimerValue>
+        {currentTime < 100
+          ? `${currentTimeAsString[0].padStart(2, '0')}.${
+              currentTimeAsString[1]
+            }`
+          : currentTimeAsString[0]}
+      </TimerValue>
     </TimerWrapper>
   )
 }
