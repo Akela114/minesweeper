@@ -16,20 +16,20 @@ export const ItemWrapper = styled(Link)`
 
   border: 6px solid
     ${(props) =>
-      props.bgColor === 'green'
+      props.$bgColor === 'green'
         ? '#ABEBC6'
-        : props.bgColor === 'blue'
+        : props.$bgColor === 'blue'
         ? '#AED6F1'
-        : props.bgColor === 'red'
+        : props.$bgColor === 'red'
         ? '#F5B7B1'
         : 'transparent'};
 
   background-color: ${(props) =>
-    props.bgColor === 'green'
+    props.$bgColor === 'green'
       ? '#28B463'
-      : props.bgColor === 'blue'
+      : props.$bgColor === 'blue'
       ? '#2E86C1'
-      : props.bgColor === 'red'
+      : props.$bgColor === 'red'
       ? '#CB4335'
       : 'transparent'};
 

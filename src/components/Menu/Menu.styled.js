@@ -11,12 +11,11 @@ export const MenuWrapper = styled.div`
   align-items: center;
   gap: 16px;
 `
-
-MenuWrapper.Title = styled.h1`
+export const MenuTitle = styled.h1`
   text-align: center;
 
   font-size: 32px;
-  color: #64e;
+  color: #5230da;
 
   padding: 0 20px 4px;
 

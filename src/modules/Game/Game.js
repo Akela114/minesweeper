@@ -1,5 +1,6 @@
 import { PropTypes } from 'prop-types'
 import { useState, useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import generateGameBoard from './lib/generateGameBoard'
 import createGameBoardMask from './lib/createGameBoardMask'
 import updateGameBoardMask from './lib/updateGameBoardMask'
@@ -15,9 +16,18 @@ import {
 import GameBoard from './components/GameBoard'
 import GameCounter from './components/GameCounter/GameCounter'
 import GameTimer from './components/GameTimer/GameTimer'
+import { leaderboardActions } from '../../store/slices/leaderboard'
 
-const Game = ({ options: { width, height, numOfMines } }) => {
-  const [gameInfo, setGameInfo] = useState({ status: 'none', time: 0 })
+const Game = ({ options: { difficulty, width, height, numOfMines } }) => {
+  const dispatch = useDispatch()
+
+  const leaderboardResults = useSelector((state) => state.results[difficulty])
+
+  const [gameInfo, setGameInfo] = useState({
+    status: 'none',
+    time: 0,
+    message: '',
+  })
   const [board, setBoard] = useState(generateGameBoard(width, height, 0))
   const [boardMask, setBoardMask] = useState(createGameBoardMask(width, height))
 
@@ -59,14 +69,49 @@ const Game = ({ options: { width, height, numOfMines } }) => {
   }
 
   const handleGameWin = (time) => {
+    const leaderboardIndex = leaderboardResults.findIndex(
+      (val) => val.time > time,
+    )
+
+    const leaderboardPosition =
+      leaderboardResults.length === 0
+        ? 0
+        : leaderboardIndex !== -1
+        ? leaderboardIndex
+        : leaderboardResults.length < 10
+        ? leaderboardResults.length
+        : -1
+
+    if (leaderboardPosition !== -1) {
+      dispatch(
+        leaderboardActions.addResult({
+          difficulty,
+          date: new Date().toLocaleDateString('ru-RU', {
+            year: 'numeric',
+            month: 'numeric',
+            day: 'numeric',
+          }),
+          time: Math.trunc(time * 10) / 10,
+        }),
+      )
+    }
+
     setGameInfo((prev) => {
-      if (prev.status === 'win') return { ...prev, time }
+      if (prev.status === 'win')
+        return {
+          ...prev,
+          time,
+          message:
+            leaderboardPosition !== -1
+              ? `${leaderboardPosition + 1}-е место в таблице лидеров!`
+              : '',
+        }
       return prev
     })
   }
 
   const handleGameRestart = () => {
-    setGameInfo({ status: 'none', time: 0 })
+    setGameInfo({ status: 'none', time: 0, message: '' })
     setBoard(generateGameBoard(width, height, 0))
     setBoardMask(createGameBoardMask(width, height))
   }
@@ -88,10 +133,12 @@ const Game = ({ options: { width, height, numOfMines } }) => {
           <GameTimer status={gameInfo.status} onGameWin={handleGameWin} />
         </GameInfo>
         {gameInfo.status === 'defeat' && (
-          <GameNotification color='red'>ПОРАЖЕНИЕ</GameNotification>
+          <GameNotification color='red'>ПОРАЖЕНИЕ!</GameNotification>
         )}
         {gameInfo.status === 'win' && (
-          <GameNotification color='green'>ПОБЕДА</GameNotification>
+          <GameNotification color='green'>
+            ПОБЕДА! {gameInfo.message}
+          </GameNotification>
         )}
         <GameActions status={gameInfo.status}>
           <GameActions.Button onClick={handleGameRestart}>
@@ -114,6 +161,7 @@ const Game = ({ options: { width, height, numOfMines } }) => {
 
 Game.propTypes = {
   options: PropTypes.shape({
+    difficulty: PropTypes.oneOf(['simple', 'hard', 'medium']),
     // < 3
     width: PropTypes.number,
     // > 3

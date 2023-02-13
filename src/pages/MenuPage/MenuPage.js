@@ -1,20 +1,20 @@
-import Layout from '../../UI/Layout'
-import { MenuWrapper, MenuHeader, MenuNav, MenuBody } from './MenuPage.styled'
-import Menu from '../../modules/Menu'
+import Layout from '../../components/UI/Layout'
+import { PageWrapper, PageHeader, PageNav, PageBody } from './MenuPage.styled'
+import Menu from '../../components/Menu'
 
 const MenuPage = () => {
   return (
     <Layout>
-      <MenuWrapper>
-        <MenuHeader>
-          <MenuNav>
-            <MenuNav.Link to='../leaderboard'>Таблица лидеров</MenuNav.Link>
-          </MenuNav>
-        </MenuHeader>
-        <MenuBody>
+      <PageWrapper>
+        <PageHeader>
+          <PageNav>
+            <PageNav.Link to='../leaderboard'>Таблица лидеров</PageNav.Link>
+          </PageNav>
+        </PageHeader>
+        <PageBody>
           <Menu />
-        </MenuBody>
-      </MenuWrapper>
+        </PageBody>
+      </PageWrapper>
     </Layout>
   )
 }

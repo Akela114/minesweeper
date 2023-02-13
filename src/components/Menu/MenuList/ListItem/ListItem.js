@@ -1,10 +1,10 @@
 import { PropTypes } from 'prop-types'
-import icons from '../../../../../assets/icons'
+import icons from '../../../../assets/icons'
 import { ItemWrapper, Title, Info, InfoImg } from './ListItem.styled'
 
 const ListItem = ({ bgColor, linkDest, itemData }) => {
   return (
-    <ItemWrapper bgColor={bgColor} to={linkDest}>
+    <ItemWrapper $bgColor={bgColor} to={linkDest}>
       <Title>{itemData.title}</Title>
       <Info>
         <InfoImg src={icons.board} alt='Board Icon' />

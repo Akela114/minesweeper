@@ -18,11 +18,14 @@
   },
   "homepage": "https://akela114.github.io/minesweeper/",
   "dependencies": {
+    "@reduxjs/toolkit": "^1.9.2",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-helmet": "^6.1.0",
+    "react-redux": "^8.0.5",
     "react-router-dom": "^6.8.1",
+    "redux-persist": "^6.0.0",
     "styled-components": "^5.3.6"
   },
   "devDependencies": {

@@ -1,7 +1,7 @@
 import styled from 'styled-components'
-import StyledButton from '../../UI/StyledButton'
-import StyledLink from '../../UI/StyledLink'
-import { wrapperStyle } from '../../UI/sharedStyles'
+import StyledButton from '../../components/UI/StyledButton'
+import StyledLink from '../../components/UI/StyledLink'
+import { wrapperStyle } from '../../components/UI/sharedStyles'
 
 export const GameWrapper = styled.div`
   display: flex;

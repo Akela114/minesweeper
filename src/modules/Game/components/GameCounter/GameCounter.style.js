@@ -1,5 +1,8 @@
 import styled from 'styled-components'
-import { wrapperStyle, imageStyle } from '../../../../UI/sharedStyles'
+import {
+  wrapperStyle,
+  imageStyle,
+} from '../../../../components/UI/sharedStyles'
 
 export const CounterWrapper = styled.div`
   ${wrapperStyle}
